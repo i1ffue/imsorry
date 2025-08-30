@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorry</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #ffeef5, #fff);
+    font-family: "Segoe UI", sans-serif;
+  }
+
+  /* Hidden checkbox */
+  #toggle {
+    display: none;
+  }
+
+  /* Envelope container */
+  .envelope {
+    width: 200px;
+    height: 120px;
+    background: #ff6b81;
+    position: relative;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+  }
+  .envelope:hover {
+    transform: scale(1.05);
+  }
+
+  /* Envelope flap */
+  .envelope::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 60px solid #ff8fa3;
+  }
+
+  /* Paper (letter) */
+  .paper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    max-width: 400px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    padding: 20px;
+    text-align: center;
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.6s ease;
+    z-index: 10;
+  }
+
+  .paper img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 14px;
+  }
+
+  .paper p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+  }
+
+  /* When checked: show letter */
+  #toggle:checked ~ .paper {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+  }
+
+  /* Dark overlay behind paper */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 5;
+  }
+  #toggle:checked ~ .overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Close text */
+  .close {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #888;
+  }
+/* ...existing code... */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #ffeef5, #fff);
+  /* Remove flex centering from body */
+}
+
+.main-content {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flower-border {
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  text-align: center;
+  font-size: 28px;
+  user-select: none;
+  pointer-events: none;
+  z-index: 100;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+.flower-border-top {
+  top: 0;
+}
+
+.flower-border-bottom {
+  bottom: 0;
+}
+/* ...existing code... */
+</style>
+</head>
+<body>
+  <!-- Top flower border -->
+  <div class="flower-border flower-border-top">🌸🌷🌼🌹🌻🌺💐🌸🌷🌼🌹🌻🌺💐</div>
+
+  <div class="main-content">
+    <!-- Checkbox hack -->
+    <input type="checkbox" id="toggle">
+
+    <!-- Label acts as button -->
+    <label for="toggle" class="envelope"></label>
+
+    <!-- Overlay -->
+    <label for="toggle" class="overlay"></label>
+
+    <!-- Paper message -->
+    <div class="paper">
+      <img src="sorrybabyflowers.png" alt="Flowers">
+      <p>Juliana, my love. I am very sorry ik i already apologized a million times but this is my way of saying im wrong and iloveyousomuch, di ko talaga ma forgive ang sarili ko sa ginawa ko and di kita gina ano na gusto ko ma fix agad im just very sorry babi,iloveyousomuch please dont overthink na i dont like that girl not one bit, only you talga iloveyousomuch </p>
+      <label for="toggle" class="close">(Click anywhere to close)</label>
+    </div>
+  </div>
+
+  <!-- Bottom flower border -->
+  <div class="flower-border flower-border-bottom">🌸🌷🌼🌹🌻🌺💐🌸🌷🌼🌹🌻🌺💐</div>
+</body>
+</html>
